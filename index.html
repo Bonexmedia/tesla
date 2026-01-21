@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla Stock ICO - Solana Network</title>
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter as fallback for Geist -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero-section {
+            background: linear-gradient(to bottom, rgba(5, 5, 5, 0.3), rgba(5, 5, 5, 1)), url('assets/hero-bg\ 2.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(5, 5, 5, 0.8) 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="sticky-top navbar-custom backdrop-blur-md">
+        <nav class="navbar navbar-expand px-4 py-3">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                    <img src="assets/hero-bg.png" alt="Tesla Logo"
+                        class="rounded-circle border border-danger border-opacity-50"
+                        style="width: 40px; height: 40px; object-fit: cover;">
+                    <div>
+                        <div class="fw-bold fs-5 lh-1">TSLA-SOL</div>
+                        <div class="small text-muted-foreground" style="font-size: 0.75rem;">Tesla ICO • Sol
+                        </div>
+                    </div>
+                </a>
+
+                <div class="d-flex align-items-center gap-3 ms-auto">
+                    <div class="d-none d-md-flex align-items-center gap-2 px-3 py-2 rounded-3"
+                        style="background-color: rgba(var(--secondary), 0.3); border: 1px solid var(--border);">
+                        <div class="rounded-circle bg-accent animate-pulse" style="width: 8px; height: 8px;"></div>
+                        <span class="small text-muted-foreground fw-medium">LIVE</span>
+                    </div>
+                    <a href="dashboard.html" class="btn btn-primary fw-medium px-4" id="">
+                        Connect Wallet
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Landing Page Content -->
+
+        <!-- Hero Section -->
+        <section class="hero-section text-center py-5 overflow-hidden">
+            <div class="hero-overlay"></div>
+            <div class="container py-5 position-relative">
+                <div class="row align-items-center justify-content-center g-5">
+                    <div class="col-lg-10 animate-fade-in-up">
+                        <div
+                            class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-full border border-danger border-opacity-25 bg-danger bg-opacity-10 text-danger mb-4">
+                            <span class="fw-bold small">EXCLUSIVE ICO LAUNCH</span>
+                        </div>
+                        <h1 class="display-3 fw-bold mb-4 lh-sm">
+                            Trade <span class="text-red-gradient">Tesla Stock</span><br>
+                            at <span class="text-red-gradient">50% Off</span><br>
+                        </h1>
+                        <p class="lead text-muted-foreground mb-4 text-balance">
+                            Buy Tesla Stock at 50% discount,
+                            Unlock exclusive access to tokenized Tesla equity on the Solana blockchain, securing your
+                            position at a steep discount during this limited-time initial offering. By entering now, you
+                            Acquire tokenized TSLA exposure for <span data-tsla-discount>~$218.75</span> (half market
+                            price). Sell immediately on open DEXs at full value (<span data-tsla-price>~$437.50</span>)
+                            when liquidity opens.
+                        </p>
+
+                        <!-- Cards Grid -->
+                        <div class="row g-4 justify-content-center mb-5 reveal">
+                            <!-- Normal Price -->
+                            <div class="col-md-4">
+                                <div class="card bg-transparent border-border p-3 h-100">
+                                    <div class="text-muted-foreground small mb-2">Market Reference Price</div>
+                                    <div class="fw-bold fs-4" data-tsla-price>$437.50</div>
+                                    <div class="text-muted-foreground small mt-1" style="font-size: 0.75rem;">Per TSLA
+                                        Share</div>
+                                </div>
+                            </div>
+                            <!-- ICO Price -->
+                            <div class="col-md-4">
+                                <div class="card h-100 p-3"
+                                    style="background-color: rgba(227, 25, 55, 0.1); border: 1px solid rgba(227, 25, 55, 0.5);">
+                                    <div class="text-danger small fw-bold mb-2">Launch Price</div>
+                                    <div class="fw-bold fs-4 text-danger" data-tsla-discount>$218.75</div>
+                                    <div class="text-danger small mt-1" style="font-size: 0.75rem;">50% Discount Entry
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- You Save -->
+                            <div class="col-md-4">
+                                <div class="card h-100 p-3"
+                                    style="background-color: rgba(40, 167, 69, 0.05); border: 1px solid rgba(40, 167, 69, 0.2);">
+                                    <div class="text-success small fw-bold mb-2">Instant Upside</div>
+                                    <div class="fw-bold fs-4 text-success" data-tsla-discount>$218.75</div>
+                                    <div class="text-success small mt-1" style="font-size: 0.75rem;">Profit Potential
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex justify-content-center animate-fade-in-up delay-200">
+                            <a href="dashboard.html"
+                                class="btn btn-primary btn-lg px-5 py-3 fw-semibold d-inline-flex align-items-center gap-2">
+                                <i data-lucide="rocket"></i>
+                                Start Trading Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Buy Section -->
+        <section class="py-5 px-3 border-top border-bottom border-border"
+            style="background-color: rgba(var(--secondary), 0.1);">
+            <div class="container py-5" style="max-width: 1100px;">
+                <h2 class="display-6 fw-bold mb-5 text-center reveal">Why Buy Tesla Stock on Solana?</h2>
+                <div class="row g-4 reveal">
+                    <!-- Icon Item 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 p-4 bg-transparent border-border card-hover-effect">
+                            <i data-lucide="dollar-sign" class="text-accent mb-4"
+                                style="width: 32px; height: 32px;"></i>
+                            <h3 class="fw-bold fs-5 mb-2">Review 50% Discount</h3>
+                            <p class="small text-muted-foreground mb-0">Pay only <span data-tsla-discount>$218.75</span>
+                                for exposure equivalent to
+                                <span data-tsla-price>$437.50</span>.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Icon Item 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 p-4 bg-transparent border-border card-hover-effect">
+                            <i data-lucide="zap" class="text-accent mb-4" style="width: 32px; height: 32px;"></i>
+                            <h3 class="fw-bold fs-5 mb-2">Immediate Liquidity</h3>
+                            <p class="small text-muted-foreground mb-0">Sell instantly on DEXs at full market price
+                                post-launch.</p>
+                        </div>
+                    </div>
+                    <!-- Icon Item 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 p-4 bg-transparent border-border card-hover-effect">
+                            <i data-lucide="trending-up" class="text-accent mb-4"
+                                style="width: 32px; height: 32px;"></i>
+                            <h3 class="fw-bold fs-5 mb-2">Arbitrage Upside</h3>
+                            <p class="small text-muted-foreground mb-0">Buy low during launch, flip at market value
+                                on-chain.</p>
+                        </div>
+                    </div>
+                    <!-- Icon Item 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 p-4 bg-transparent border-border card-hover-effect">
+                            <i data-lucide="shield-check" class="text-accent mb-4"
+                                style="width: 32px; height: 32px;"></i>
+                            <h3 class="fw-bold fs-5 mb-2">100% Self-Custody</h3>
+                            <p class="small text-muted-foreground mb-0">Hold in your wallet. No brokers, no KYC, no
+                                waiting.</p>
+                        </div>
+                    </div>
+                    <!-- Icon Item 5 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 p-4 bg-transparent border-border card-hover-effect">
+                            <i data-lucide="globe" class="text-accent mb-4" style="width: 32px; height: 32px;"></i>
+                            <h3 class="fw-bold fs-5 mb-2">Global Access</h3>
+                            <p class="small text-muted-foreground mb-0">Trade 24/7 from anywhere in the world on Solana.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- Icon Item 6 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 p-4 bg-transparent border-border card-hover-effect">
+                            <i data-lucide="rocket" class="text-accent mb-4" style="width: 32px; height: 32px;"></i>
+                            <h3 class="fw-bold fs-5 mb-2">Tesla Momentum</h3>
+                            <p class="small text-muted-foreground mb-0">Exposure to EV leadership and robotics growth.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-5 px-3">
+            <div class="container py-5" style="max-width: 1100px;">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 p-4 bg-transparent border-border">
+                            <p class="small text-muted-foreground mb-2">Total Shares Available</p>
+                            <p class="fw-bold display-6 mb-0">100,000</p>
+                            <p class="small text-muted-foreground mt-2 mb-0">TSLA Tokens</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 p-4 bg-transparent border-border">
+                            <p class="small text-muted-foreground mb-2">Discount Percentage</p>
+                            <p class="fw-bold display-6 text-accent mb-0">50%</p>
+                            <p class="small text-muted-foreground mt-2 mb-0">Limited Time</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 p-4 bg-transparent border-border">
+                            <p class="small text-muted-foreground mb-2">Current SOL Price</p>
+                            <p class="fw-bold display-6 mb-0" data-sol-price>$210.42</p>
+                            <p class="small text-success mt-2 mb-0" data-sol-change>↑ 5.2% (24h)</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 p-4 bg-transparent border-border">
+                            <p class="small text-muted-foreground mb-2">Network</p>
+                            <p class="fw-bold display-6 mb-0">Solana</p>
+                            <p class="small text-accent mt-2 mb-0">Fast & Low-Cost</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-5 px-3 border-top border-bottom border-border"
+            style="background-color: rgba(var(--secondary), 0.1);">
+            <div class="container py-5" style="max-width: 1100px;">
+                <h2 class="display-6 fw-bold mb-5 text-center">Trusted by Crypto Investors</h2>
+                <div class="row g-4">
+                    <!-- Person 1 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 bg-transparent border-border">
+                            <div class="d-flex align-items-center gap-1 mb-4">
+                                <span class="text-accent fs-5">★</span><span class="text-accent fs-5">★</span><span
+                                    class="text-accent fs-5">★</span><span class="text-accent fs-5">★</span><span
+                                    class="text-accent fs-5">★</span>
+                            </div>
+                            <p class="small mb-4 text-muted-foreground">"Bought at the 50% launch discount—sold half on
+                                DEX launch for nearly double my entry. Easiest arb I've seen."</p>
+                            <div>
+                                <p class="fw-semibold mb-0">Alex Chen</p>
+                                <p class="small text-muted-foreground mb-0">DeFi Arbitrage Trader</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Person 2 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 bg-transparent border-border">
+                            <div class="d-flex align-items-center gap-1 mb-4">
+                                <span class="text-accent fs-5">★</span><span class="text-accent fs-5">★</span><span
+                                    class="text-accent fs-5">★</span><span class="text-accent fs-5">★</span><span
+                                    class="text-accent fs-5">★</span>
+                            </div>
+                            <p class="small mb-4 text-muted-foreground">"Finally a way to get TSLA exposure without
+                                brokers. Bought low, watching it track full price already."</p>
+                            <div>
+                                <p class="fw-semibold mb-0">Sarah Williams</p>
+                                <p class="small text-muted-foreground mb-0">Solana Power User</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Person 3 -->
+                    <div class="col-md-4">
+                        <div class="card h-100 p-4 bg-transparent border-border">
+                            <div class="d-flex align-items-center gap-1 mb-4">
+                                <span class="text-accent fs-5">★</span><span class="text-accent fs-5">★</span><span
+                                    class="text-accent fs-5">★</span><span class="text-accent fs-5">★</span><span
+                                    class="text-accent fs-5">★</span>
+                            </div>
+                            <p class="small mb-4 text-muted-foreground">"Discount + instant liquidity = strong play.
+                                Holding the rest for Tesla's next run."</p>
+                            <div>
+                                <p class="fw-semibold mb-0">Mike Johnson</p>
+                                <p class="small text-muted-foreground mb-0">Crypto Investor</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-5 px-3">
+            <div class="container py-5" style="max-width: 900px;">
+                <h2 class="display-6 fw-bold mb-5 text-center">Frequently Asked Questions</h2>
+                <div class="vstack gap-3">
+                    <div class="card p-4 bg-transparent border-border">
+                        <h3 class="fw-semibold mb-2 fs-5">How does the 50% discount work?</h3>
+                        <p class="text-muted-foreground mb-0">You acquire TSLA-SOL tokens at launch for half the current
+                            NASDAQ reference price (~$218.75 vs ~$437.50). This is a limited early-access incentive.</p>
+                    </div>
+                    <div class="card p-4 bg-transparent border-border">
+                        <h3 class="fw-semibold mb-2 fs-5">Can I really sell at full price right after launch?</h3>
+                        <p class="text-muted-foreground mb-0">Yes—once listed on DEXs, the token becomes freely
+                            tradable. If it tracks TSLA closely, you can sell at market value, capturing the discount as
+                            potential profit.</p>
+                    </div>
+                    <div class="card p-4 bg-transparent border-border">
+                        <h3 class="fw-semibold mb-2 fs-5">Is trading immediate and 24/7?</h3>
+                        <p class="text-muted-foreground mb-0">100%—Solana never sleeps. Buy during ICO, sell on open
+                            markets anytime without broker restrictions.</p>
+                    </div>
+                    <div class="card p-4 bg-transparent border-border">
+                        <h3 class="fw-semibold mb-2 fs-5">What's the minimum purchase amount?</h3>
+                        <p class="text-muted-foreground mb-0">You can start with as little as 0.1 SOL. No minimums or
+                            maximums until the 100,000 token allocation is sold out.</p>
+                    </div>
+                    <div class="card p-4 bg-transparent border-border">
+                        <h3 class="fw-semibold mb-2 fs-5">Is my data safe?</h3>
+                        <p class="text-muted-foreground mb-0">Your wallet connects directly without sharing private
+                            keys. All transactions are purely on-chain and self-custodial.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-5 px-3 border-top border-border" style="background-color: rgba(5, 5, 5, 0.9);">
+            <div class="container" style="max-width: 1100px;">
+                <div class="row g-5">
+                    <div class="col-lg-4">
+                        <div class="d-flex align-items-center gap-2 mb-4">
+                            <img src="assets/hero-bg.png" alt="Tesla Logo"
+                                class="rounded-circle border border-danger border-opacity-50"
+                                style="width: 32px; height: 32px; object-fit: cover;">
+                            <span class="fw-bold fs-5">TSLA-SOL</span>
+                        </div>
+                        <p class="text-muted-foreground small mb-4">
+                            The bridge between innovative automotive equity and decentralized finance. Trade TSLA on
+                            Solana with speed, security, and zero friction.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="https://x.com/Tesla" target="_blank"
+                                class="text-muted-foreground hover-text-foreground transition-colors">
+                                <i data-lucide="twitter" style="width: 20px; height: 20px;"></i>
+                            </a>
+                            <a href="https://www.instagram.com/teslamotors" target="_blank"
+                                class="text-muted-foreground hover-text-foreground transition-colors">
+                                <i data-lucide="instagram" style="width: 20px; height: 20px;"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@tesla" target="_blank"
+                                class="text-muted-foreground hover-text-foreground transition-colors">
+                                <i data-lucide="youtube" style="width: 20px; height: 20px;"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/tesla-motors" target="_blank"
+                                class="text-muted-foreground hover-text-foreground transition-colors">
+                                <i data-lucide="linkedin" style="width: 20px; height: 20px;"></i>
+                            </a>
+                            <a href="https://www.facebook.com/TeslaMotorsCorp" target="_blank"
+                                class="text-muted-foreground hover-text-foreground transition-colors">
+                                <i data-lucide="facebook" style="width: 20px; height: 20px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-6">
+                        <h4 class="fw-semibold fs-6 mb-3">Platform</h4>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted-foreground small">
+                            <li><a href="#" class="text-reset text-decoration-none hover-text-foreground">Dashboard</a>
+                            </li>
+                            <li><a href="#" class="text-reset text-decoration-none hover-text-foreground">Swap</a></li>
+                            <li><a href="#" class="text-reset text-decoration-none hover-text-foreground">Analytics</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-6">
+                        <h4 class="fw-semibold fs-6 mb-3">Resources</h4>
+                        <ul class="list-unstyled d-flex flex-column gap-2 text-muted-foreground small">
+                            <li><a href="#"
+                                    class="text-reset text-decoration-none hover-text-foreground">Documentation</a></li>
+                            <li><a href="#" class="text-reset text-decoration-none hover-text-foreground">Privacy
+                                    Policy</a></li>
+                            <li><a href="#" class="text-reset text-decoration-none hover-text-foreground">Terms of
+                                    Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4">
+                        <h4 class="fw-semibold fs-6 mb-3">Newsletter</h4>
+                        <p class="text-muted-foreground small mb-3">Subscribe for the latest ICO updates.</p>
+                        <div class="d-flex gap-2">
+                            <input type="email" class="form-control bg-transparent border-border text-white"
+                                placeholder="Enter your email">
+                            <button class="btn btn-primary d-flex align-items-center justify-content-center px-3">
+                                <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top border-border mt-5 pt-4 text-center text-muted-foreground small">
+                    <p class="mb-0">&copy; 2026 TSLA-SOL Project. All rights reserved. Not affiliated with Tesla, Inc.
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <script src="conversion-calculator.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Lucide Icons -->
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <!-- Custom Scripts -->
+        <script src="js/tesla-price-sync.js"></script>
+        <script>
+            lucide.createIcons();
+
+            // Scroll Reveal Animation
+            document.addEventListener('DOMContentLoaded', () => {
+                const reveals = document.querySelectorAll('.reveal');
+
+                const revealOnScroll = () => {
+                    const windowHeight = window.innerHeight;
+                    const elementVisible = 50;
+
+                    reveals.forEach((reveal) => {
+                        const elementTop = reveal.getBoundingClientRect().top;
+                        if (elementTop < windowHeight - elementVisible) {
+                            reveal.classList.add('active');
+                        }
+                    });
+                }
+
+                window.addEventListener('scroll', revealOnScroll);
+                revealOnScroll(); // Trigger once on load
+            });
+        </script>
+        <!-- TSLA Price Updater - Real-time data sync -->
+        <script src="tsla-price-updater.js"></script>
+</body>
+
+</html>

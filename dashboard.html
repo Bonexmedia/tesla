@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | TSLA-SOL</title>
+    <script src="https://unpkg.com/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .navbar-custom {
+            background-color: rgba(30, 30, 40, 0.4);
+            border-bottom: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="sticky-top navbar-custom backdrop-blur-md">
+        <nav class="navbar navbar-expand px-4 py-3">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center gap-3" href="index.html">
+                    <img src="assets/hero-bg.png" alt="Tesla Logo"
+                        class="rounded-circle border border-danger border-opacity-50"
+                        style="width: 40px; height: 40px; object-fit: cover;">
+                    <div>
+                        <div class="fw-bold fs-5 lh-1">TSLA-SOL</div>
+                        <div class="small text-muted-foreground" style="font-size: 0.75rem;">Tesla Stock ICO</div>
+                    </div>
+                </a>
+
+                <div class="d-flex align-items-center gap-3 ms-auto">
+                    <div class="d-none d-md-flex align-items-center gap-2 px-3 py-2 rounded-3"
+                        style="background-color: rgba(var(--secondary), 0.3); border: 1px solid var(--border);">
+                        <div class="rounded-circle bg-accent animate-pulse" style="width: 8px; height: 8px;"></div>
+                        <span class="small text-muted-foreground fw-medium">LIVE</span>
+                    </div>
+                    <button class="btn btn-primary fw-medium px-4">
+                        ...
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-fluid p-4">
+        <div class="row g-4">
+            <!-- Main Chart Area -->
+            <div class="col-lg-9 order-2 order-lg-1">
+                <!-- Top Stats Bar -->
+                <div class="row g-3 mb-4">
+                    <div class="col-6 col-md-3">
+                        <div class="card p-4 h-100 bg-card border-border">
+                            <p class="small text-muted-foreground mb-1">TSLA/USD</p>
+                            <p class="fs-4 fw-bold mb-0" data-stat="tsla-price">$254.75</p>
+                            <p class="small text-success mt-1 mb-0" data-stat="tsla-change">↑ 2.34%</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card p-4 h-100 bg-card border-border">
+                            <p class="small text-muted-foreground mb-1">Your Rate</p>
+                            <p class="fs-4 fw-bold text-accent mb-0" data-stat="your-rate">$127.38</p>
+                            <p class="small text-accent mt-1 mb-0">50% OFF</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card p-4 h-100 bg-card border-border">
+                            <p class="small text-muted-foreground mb-1">24h High/Low</p>
+                            <p class="fs-5 fw-bold mb-0" data-stat="high-low">$256 / $238</p>
+                            <p class="small text-muted-foreground mt-1 mb-0">Range</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="card p-4 h-100 bg-card border-border">
+                            <p class="small text-muted-foreground mb-1">SOL/USD</p>
+                            <p class="fs-4 fw-bold mb-0" data-sol-price>$127.00</p>
+                            <p class="small text-success mt-1 mb-0" data-sol-change>↑ 3.2%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Placeholder -->
+                <div class="card p-4 mb-4 bg-card border-border">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <h3 class="h6 fw-bold mb-0">TSLA/USD Chart</h3>
+                            <p class="small text-muted-foreground mb-0">Real-time price action</p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <button
+                                class="btn btn-sm btn-link text-muted-foreground text-decoration-none small">1H</button>
+                            <button
+                                class="btn btn-sm btn-link text-muted-foreground text-decoration-none small">4H</button>
+                            <button class="btn btn-sm btn-soft-primary small fw-bold"
+                                style="background-color: rgba(var(--primary), 0.2); color: var(--primary);">1D</button>
+                            <button
+                                class="btn btn-sm btn-link text-muted-foreground text-decoration-none small">1W</button>
+                            <button
+                                class="btn btn-sm btn-link text-muted-foreground text-decoration-none small">ALL</button>
+                        </div>
+                    </div>
+                    <!-- TradingView Widget with Chat -->
+                    <div class="tradingview-widget-container mb-4" style="height: 600px; width: 100%;">
+                        <div id="tradingview_chart" style="height: 100%; width: 100%;"></div>
+                    </div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                    <script type="text/javascript">
+                        new TradingView.widget({
+                            "autosize": true,
+                            "symbol": "NASDAQ:TSLA",
+                            "interval": "D",
+                            "timezone": "Etc/UTC",
+                            "theme": "dark",
+                            "style": "1",
+                            "locale": "en",
+                            "enable_publishing": false,
+                            "withdateranges": true,
+                            "hide_side_toolbar": false,
+                            "allow_symbol_change": true,
+                            "details": true,
+                            "hotlist": true,
+                            "calendar": false,
+                            "studies": [
+                                "STD;SMA"
+                            ],
+                            "container_id": "tradingview_chart"
+                        });
+                    </script>
+
+                    <!-- Chart Footer Stats -->
+                    <div class="row pt-4 border-top border-border">
+                        <div class="col-4">
+                            <p class="small text-muted-foreground mb-1">High</p>
+                            <p class="fs-5 fw-bold mb-0" data-stat="footer-high">$256.42</p>
+                        </div>
+                        <div class="col-4 text-center">
+                            <p class="small text-muted-foreground mb-1">Close</p>
+                            <p class="fs-5 fw-bold text-accent mb-0" data-stat="footer-close">$254.75</p>
+                        </div>
+                        <div class="col-4 text-end">
+                            <p class="small text-muted-foreground mb-1">Low</p>
+                            <p class="fs-5 fw-bold mb-0" data-stat="footer-low">$235.18</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Campaign Status -->
+                <div class="card p-3 bg-card border-border">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="h6 fw-bold mb-0 d-flex align-items-center gap-2">
+                            <i data-lucide="target" class="text-accent" style="width: 18px;"></i>
+                            Token Allocation
+                        </h3>
+                        <span
+                            class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-2 py-1 small">Live</span>
+                    </div>
+
+                    <div class="text-center mb-3">
+                        <div class="display-6 fw-bold text-white mb-0" id="progress-percent">67.5%</div>
+                        <div class="small text-muted-foreground text-uppercase tracking-wider"
+                            style="font-size: 0.7rem;">Sold Out</div>
+                    </div>
+
+                    <!-- Progress Bar with Glow -->
+                    <div class="progress mb-3 overflow-visible"
+                        style="height: 12px; background-color: rgba(255, 255, 255, 0.05); border-radius: 20px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);">
+                        <div class="progress-bar position-relative overflow-visible" role="progressbar"
+                            id="progress-bar"
+                            style="width: 67.5%; background: linear-gradient(90deg, #FF4D4D, #E31937); border-radius: 20px; box-shadow: 0 0 15px rgba(227, 25, 55, 0.5);">
+                            <!-- Glow Dot at end -->
+                            <div class="position-absolute top-50 start-100 translate-middle bg-white rounded-circle shadow-lg"
+                                style="width: 18px; height: 18px; border: 3px solid #E31937;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Grid -->
+                    <!-- Stats Grid -->
+                    <div class="row g-0 text-center mt-2">
+                        <div class="col-4 border-end border-white border-opacity-10">
+                            <div class="small text-muted-foreground text-uppercase mb-1"
+                                style="font-size: 0.65rem; letter-spacing: 0.05em;">Sold</div>
+                            <div class="fw-bold text-white" id="sold-tokens">67.5k</div>
+                        </div>
+                        <div class="col-4 border-end border-white border-opacity-10">
+                            <div class="small text-muted-foreground text-uppercase mb-1"
+                                style="font-size: 0.65rem; letter-spacing: 0.05em;">Left</div>
+                            <div class="fw-bold text-white" id="left-tokens">32.5k</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="small text-muted-foreground text-uppercase mb-1"
+                                style="font-size: 0.65rem; letter-spacing: 0.05em;">Total</div>
+                            <div class="fw-bold text-muted" id="total-tokens">100k</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Panel (Swap) -->
+            <div class="col-lg-3 order-1 order-lg-2">
+                <div class="card p-4 border-border sticky-top"
+                    style="top: 100px; background: linear-gradient(to bottom, rgba(var(--card), 0.8), rgba(var(--card), 0.5));">
+                    <h3 class="h6 fw-bold mb-4 d-flex justify-content-between align-items-center">
+                        Quick Swap
+                        <span class="badge bg-accent bg-opacity-25 text-accent small">50% OFF</span>
+                    </h3>
+
+                    <!-- You Send -->
+                    <!-- You Send Header -->
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="small fw-bold text-muted-foreground text-uppercase mb-0">You Send</label>
+                        <div class="d-flex align-items-center gap-2 small">
+                            <span class="text-muted-foreground">Balance: <span class="fw-semibold text-white"
+                                    id="sol-balance">0.0000</span> SOL</span>
+                            <button id="max-button"
+                                class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 text-decoration-none fw-bold px-2 py-1"
+                                style="cursor: pointer; transition: all 0.2s;"
+                                onmouseover="this.style.background='var(--primary)'; this.style.color='white'"
+                                onmouseout="this.style.background='rgba(227, 25, 55, 0.1)'; this.style.color='var(--primary)'">
+                                MAX
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="p-3 rounded-3 mb-0 border border-border"
+                        style="background-color: rgba(var(--secondary), 0.3);">
+                        <input type="number" id="sol-input"
+                            class="form-control bg-transparent border-0 text-white fs-4 fw-bold p-0 mb-2 shadow-none"
+                            placeholder="0.00" value="0.00" min="0" step="0.01">
+                        <div class="d-flex justify-content-between align-items-end">
+                            <span class="small text-muted-foreground">◎ SOL</span>
+                            <span class="small text-muted-foreground" id="sol-usd-value">≈ $0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Swap Icon -->
+                    <div class="position-relative text-center my-3" style="height: 24px; z-index: 10;">
+                        <button class="btn btn-swap absolute-center">
+                            <i data-lucide="arrow-down" class="text-white" style="width: 20px; height: 20px;"></i>
+                        </button>
+                    </div>
+
+                    <!-- You Receive -->
+                    <label class="small fw-bold text-muted-foreground text-uppercase mb-2">You Receive</label>
+                    <div class="p-3 rounded-3 mb-4 border"
+                        style="background-color: rgba(var(--accent), 0.1); border-color: rgba(var(--accent), 0.3) !important;">
+                        <input type="text" readonly id="tsla-output"
+                            class="form-control bg-transparent border-0 fs-4 fw-bold p-0 mb-2 shadow-none text-accent"
+                            value="0.00">
+                        <div class="d-flex justify-content-between align-items-end">
+                            <span class="small fw-semibold text-accent">⧘ TSLA</span>
+                            <span class="small text-muted-foreground" id="tsla-usd-value">≈ $0.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Validation Message -->
+                    <div id="validation-message" class="alert alert-warning small py-2 px-3 mb-3"
+                        style="display: none; font-size: 0.75rem;"></div>
+
+                    <!-- Info -->
+                    <div class="p-3 rounded-3 mb-4 border border-border"
+                        style="background-color: rgba(var(--secondary), 0.3);">
+                        <div class="d-flex justify-content-between small mb-2">
+                            <span class="text-muted-foreground">Rate</span>
+                            <span class="font-monospace fw-semibold" id="conversion-rate">1 SOL = 0.0486 TSLA</span>
+                        </div>
+                        <div class="d-flex justify-content-between small border-top border-border pt-2">
+                            <span class="text-muted-foreground">Network Fee</span>
+                            <span class="fw-semibold">~0.00025 SOL</span>
+                        </div>
+                    </div>
+
+                    <button
+                        class="btn btn-primary w-100 py-3 fw-semibold rounded-3 d-flex align-items-center justify-content-center gap-2">
+                        <i data-lucide="zap" style="width: 18px;"></i>
+                        Swap Now
+                    </button>
+
+                    <p class="small text-muted-foreground text-center mt-3 mb-0" style="font-size: 0.7rem;">
+                        By swapping, you agree to our terms
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+    <!-- TSLA Price Updater - Real-time data sync -->
+    <script src="tsla-price-updater.js"></script>
+    <!-- Conversion Calculator -->
+    <script src="conversion-calculator.js"></script>
+    <!-- Token Allocation Progress -->
+    <script src="token-progress.js"></script>
+</body>
+
+</html>
